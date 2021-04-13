@@ -1,0 +1,394 @@
+% Author :Yongxue Liu =========================
+% E-mail :yongxuel@foxmial.com.
+% latexstudio.net.
+% xelatex -------------------------------------
+\documentclass[sans,mathserif]{beamer} % 数学字体
+\usepackage{kerkis} % Kerkis roman and sans
+\usepackage{kmath} % 数学字体
+\usepackage{ctex}
+\usepackage{calligra}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{CCNU}
+\usepackage{hyperref}
+\hypersetup{hidelinks,backref=true,pagebackref=true,hyperindex=true,colorlinks=false,breaklinks=true,urlcolor= ocre,bookmarks=true,bookmarksopen=ture,pdftitle={华中师范大学数学与统计学学院主题 Beamer},pdfauthor={Banach Spaces}}
+
+
+\author{\href{https://latexstudio.net/index/details/index/mid/993.html}{Banach Spaces (\textcolor{blue}{点击}\textcolor{red}{下载 Beamer})}}
+\title{第八章~Banach 空间}
+\subtitle{开映射定理 $\cdot$ 闭图像定理}
+\institute{华中师范大学数学与统计学学院}
+\date{December 14, 2020}
+% end -----------------------------------------
+% 正文 =========================================
+
+\begin{document}
+
+\kaishu
+\begin{frame}
+	\titlepage
+	\begin{figure}[htpb]
+		\begin{center}
+			\includegraphics[width=0.2\linewidth]{MSSCCMUlogo.pdf}
+		\end{center}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+\section{开映射定理}
+
+\begin{frame}[allowframebreaks]{开映射定理定义}
+	
+	\begin{theorem}[开映射定理]
+		
+		设有界线性算子 $T$ 将巴拿赫空间 $E$ 映射成巴
+拿赫空间 $E_{1}$ 中的某个第二类型的集 $F$, 则 :
+
+  (i) $F$ = $E_{1}$ , 即算子 $T$ 的值域是整个空间 $E_{1}$ ;
+
+  (ii) 存在正数 $K$, 使得对一切 $y \in E_{1}$, 存在 $E$ 中的元素 $x$ 使得
+  \begin{equation}
+	T x=y \text{ 且 } \quad\|x\| \leq K\|T x\| .
+\end{equation}
+	
+\end{theorem}
+\end{frame}
+
+\begin{frame}{开映射定理证明}
+
+\begin{proof}[开映射定理证明:]
+$\forall n=1,2,3, \cdots,$  令
+\begin{align*}
+O_{n}&=\{x \in E:\|x\| \leq n\} \\
+Q_{n}&=\left\{y \in E_{1}:\|y\| \leq n\right\}
+\end{align*}
+
+ $M_{n}=T\left(O_{n}\right)$, \quad  即  \quad $M_{n}$  为  $O_{n}$  的像.
+
+ Step 1: 为证明定理, 只需证  $\exists \delta_{0}>0 \text { s.t. } M_{1}=T\left(O_{1}\right) \supset Q_{\frac{\delta_{0}}{2}}$.
+
+ 事实上:
+
+$\forall y \in E_{1} \text { 且 } y \neq \theta$, 令 $ y^{\prime}=\frac{\delta_{0}}{2} \frac{y}{\|y\|} \in Q_{\frac{\delta_{0}}{2}}$,  存在  $x^{\prime} \in O_{1}$  使  $T x^{\prime}=y^{\prime}$.
+
+令 $ x=\frac{2\|y\|}{\delta_{0}} x^{\prime}$,  则
+\begin{equation}
+T x=y	
+\end{equation}
+
+\end{proof}
+\end{frame}
+
+
+\begin{frame}{开映射定理证明}
+	\begin{proof}[开映射定理证明:]
+	且
+\begin{equation}
+	\|x\|=\frac{2\|y\| \cdot\left\|x^{\prime}\right\|}{\delta_{0}} \leq \frac{2}{\delta_{0}}\|y\|=\frac{2}{\delta_{0}}\|T x\|
+\end{equation}
+
+由等式(2)可知, $ F=E_{1}$, 定理的结论 (i) 成立.  令 $K=\frac{2}{\delta_{0}}$,  于 是  $\|x\| \leq K\|T x\|$,  定理的结论(ii)成立.
+
+Step 2: 为证 $M_1=T(Q_{1})\supset Q_{\frac{\delta}{2}}$, 只需要证明 $M_{1}$ 在 $Q_{\frac{\delta}{2}}$ 中稠密.
+
+实际上：若 $M_1=T(Q_{1})$ 在 $Q_{\delta}$ 中稠密，则 $\forall n, T(Q_{\frac{1}{2^n}}) 在 $$Q_{\frac{\delta}{2}}$ 中稠密.
+
+因此，$\forall Q_{\frac{\delta}{2}}$, s.t.
+\begin{align*}
+\|y-Tx_{1}\|\leq \frac{\delta}{2^2}
+\end{align*}
+\end{proof}
+\end{frame}
+
+\begin{frame}{开映射定理证明}
+\begin{proof}[开映射定理证明:]
+即：$y-Tx_{1} \in Q_{\frac{\delta}{2}}$. 又因为 $T(Q_{\frac{1}{2^2}})$ 在 $Q_{\frac{1}{2^2}}$ 中稠密，$\forall x_{2}\in Q_{\frac{1}{2^2}}$, s.t.
+\begin{align*}
+	\|y-Tx_{1}-Tx_{2}\|\leq \frac{\delta}{2^3}
+	\end{align*}
+即
+\begin{align*}
+	\|y-T(x_{1}+x_{2})\|\leq \frac{\delta}{2^3}
+\end{align*}
+归纳可证：$\exists \{x_{n}\}\subset E (n=1,2,...)$, s.t. $x_{n}\in O_{\frac{1}{2^{n+1}}}$, 且
+\begin{align}
+	\|y-T(x_{1}+x_{2})+\cdots+x_{n}\|\leq \frac{\delta}{2^{n+1}}
+\end{align}
+\end{proof}
+\end{frame}
+
+\begin{frame}{开映射定理的证明}
+\begin{proof}[开映射定理证明:]
+	取 $s_{n}=\sum_{k=1}^{n}x_{k}$
+\begin{align*}
+	\left\|s_{m}-s_{n}\right\|=\left\|x_{n+1}+\cdots+x_{m}\right\| \leq \sum_{k=n+1}^{\infty}\left\|x_{k}\right\| \leq \sum_{k=n+1}^{\infty} \frac{1}{2^{n+1}}
+\end{align*}
+
+故  $\left\{s_{n}\right\}$  是 $ E $ 中的基本列, 由 $ E $ 是巴拿赫空间,  $s_{n}=\sum_{1=1}^{\infty} x_{k}$  在 $ E $ 中收签.
+令  $x=\sum_{n=1}^{\infty} x_{n}$,  则
+\begin{align*}
+	\|x\| \leq \sum_{n=1}^{\infty}\left\|x_{n}\right\| \leq \sum_{n=1}^{\infty} \frac{1}{2^{n}}=1, \text { 即有 } x \in O_{1} .
+\end{align*}
+因为 $T$ 连给, 在(4)中令 $ n \rightarrow \infty$,  有 $ y=T x$.  故  $M_{1}=T\left(O_{1}\right) \supset Q_{\frac{\delta_{0}}{2}}$ .
+
+\end{proof}
+\end{frame}
+
+
+\begin{frame}{开映射定理的证明}
+	\begin{proof}[开映射定理证明:]
+
+		Step 3:  证明 $ M_{1}=T\left(O_{1}\right)$ 在  $Q_{\delta_{0}}$ 中稠密.
+
+a) 因  $E=\bigcup_{n=1}^{\infty} O_{n}$,  故 $ F=\bigcup_{n=1}^{\infty} M_{n}$ .  由于 $ F $ 是第二类型的集, 故$\exists  n_{0}, \mathrm{s.t.}   M_{n_{0}}$  不是稀疏集.
+
+于是  $\exists E_{1}$  中的闭球 $ Q\left(y_{0}, r_{0}\right)=:\left\{y \in E_{1}:\left\|y-y_{0}\right\| \leq r_{0}\right\}$  使得  $M_{n_{0}} $
+在  $Q\left(y_{0}, r_{0}\right)$  中稠密.
+
+% [fig]
+
+\end{proof}
+\end{frame}
+
+\begin{frame}{开映射定理的证明}
+	\begin{proof}[开映射定理证明:]
+
+b)  $M_{n_{0}}$  在  $Q\left(y_{0}, r_{0}\right)$  中稠密,  $\Rightarrow M_{n_{0}}$  在  $Q\left(-y_{0}, r_{0}\right)$  中稠密,
+ $\Rightarrow M_{n_{0}}$  在  $Q_{r_{0}}$  中稠密,
+ $\Rightarrow M_{1}$  在
+稠密.
+记:   $\delta_{0}=: \frac{r_{0}}{n_{0}}$.
+
+注:  $E_{1}$  的完备性体现在何处？ (第二型的赋范线性空间即可  )
+
+	\end{proof}
+	\end{frame}
+
+\begin{frame}{推论}
+	\begin{alertblock}{推论~I}
+		推论~~ $T$  满足定理 2.1 的条件 $\Rightarrow  T $ 将 $ E $ 中的开集映成 $ E_{1}$  中的开集.
+
+推论证明:
+{\footnotesize
+ 由定理证明可知, $T\left(O_{1}\right) \supset Q_{\frac{\delta_{0}}{2}}$, 所以
+\begin{align*}
+	\forall n, \quad T\left(O_{\frac{1}{2^{n}}}\right) \supset Q_{\frac{\delta_{0}}{2^{n+1}}}
+\end{align*}
+
+设  $G \subset E$  是开集,  $\forall y \in T(G), \exists x \in G,  s.t.  T x=y $.
+因为  $x$  是 $G$ 的内点, 故存在  $n$  使得  $x+O_{\frac{1}{2^{n}}} \subset G $.
+于是  $T x+T\left(O_{\frac{1}{2} n}\right) \subset T(G)$,  即  $y+T\left(O_{\frac{1}{2} n}\right) \subset T(G) $.
+再注意到 $ Q_{\frac{\delta_{0}}{2^{n+1}}} \subset T\left(O_{\frac{1}{2^{n}}}\right) $.  因此
+\begin{align*}
+	y+Q \frac{\delta_{0}}{2^{n+1}}=Q\left(y, \frac{\delta_{0}}{2^{n+1}}\right) \subset T(G)
+\end{align*}
+
+故  $y $ 是 $ T(G) $ 的内点, 因此 $ T(G) $ 是开集.
+}
+	\end{alertblock}
+	\end{frame}
+
+	\begin{frame}{推论}
+		\begin{alertblock}{推论~II}
+			设有界线性算子 $ T $ 将巴拿赫空间 $ E $ 映入巴拿赫空间 $ E_{1}$,  则 $ T $ 的值域或者是 $ E_{1} $ 或是 $ E_{1} $ 中第一类型的集, 二者必居其一.
+注: 正是由于推论 1 中 $ T $ 将开集映成开集这一结论, 我们常将定理 2.1 称为开映射定理.
+		\end{alertblock}
+		\end{frame}
+
+\section{闭算子定理}
+\begin{frame}{逆算子定理}
+\begin{theorem}{逆算子定理}
+	当 $T$ 的逆算子存在时, 称 $T$ 是可逆的
+
+	设有界线性算子 $T$ 将巴拿赫空间 $E$ 映成巴拿
+赫空间 $E_1$ 中的某个第二类型的集, 而且 $T$ 是单映射, 则 $T$ 存在有界逆算子
+
+\end{theorem}
+\begin{proof}{逆算子定理证明:}
+	证：由定理 2.1, $ T $ 的值域是 $ E $.  再由假设,  $T $ 是单映射. 故 $ T $ 的逆算
+	子 $ T^{-1} $ 存在.
+	记 $ x=T^{-1} y $.  由不等式  (1),  有
+	\begin{align*}
+		\left\|T^{-1} y\right\|=\|x\| \leq K\|T x\|=K\|y\|
+	\end{align*}
+	
+	故  $T^{-1} $ 有界.
+	
+\end{proof}
+\end{frame}
+
+\begin{frame}{范数等价定义}
+\begin{definition}{范数等价}
+	定义 设 $ E $ 为线性空间, $ \|\cdot\|_{1} $、$\|\cdot\|_{2}$  是定义在 $ E $ 上的两个范数, $ E $ 按照这 两个范数均为赋范线性空间.
+若存在正数 $ K_{1}, K_{2}$,  成立
+\begin{align*}
+	K_{1}\|x\|_{1} \leq\|x\|_{2} \leq K_{2}\|x\|_{1}, \forall x \in E
+\end{align*}
+则称范数 $\|  \cdot \|_{1}$  与  $\|\cdot\|_{2}$  等价.
+将 $ E $ 分别赋以范数  $\|\cdot\|_{1},\|\cdot\|_{2}$  后得到的赋范线性空间分记为  $\left(E,\|\cdot\|_{1}\right)$,  $\left(E,\|\cdot\|_{2}\right) $
+容易看出, 当  $\|\cdot\|_{1},\|\cdot\|_{2}$ 等价时,  $\left(E,\|\cdot\|_{1}\right),\left(E,\|\cdot\|_{2}\right)$  拓扑同构, 反之, 亦
+然.
+\end{definition}	
+\end{frame}
+
+\begin{frame}{推论}
+	\begin{alertblock}{推论~I}
+		设 $ \left(E,\|\cdot\|_{1}\right)$, $\left(E,\|\cdot\|_{2}\right)$  均为巴拿赫空间,
+若存在正数 $ K $ 使得对一切 $ x \in E$,  有
+$\|x\|_{2} \leq K\|x\|_{1}$	
+
+则 $ \|\cdot\|_{1} $ 与 $ \|\cdot\|_{2}$  等价. 因此  $\left(E,\|\cdot\|_{1}\right) $ 与  $\left(E,\|\cdot\|_{2}\right) $ 拓扑同构.
+\end{alertblock}
+\begin{proof}[推论~I 证明:]
+	令 $ I $ 是 $ E $ 上的单位算子, 则 $ I $ 可以看成是由巴拿赫空间 $ \left(E,\|\cdot\|_{1}\right) $ 到 巴拿赫空间 $ \left(E,\|\cdot\|_{2}\right) $ 上的线性算子, 且 $ I $ 显然是双映射.
+由不等式(7) 可知, $ I $ 还是有界的. 由定理 2.2, $ I $ 的逆算子 $ I^{-1} $ 也有界. 由
+此可知 $ \|\cdot\|_{1},\|\cdot\|_{2} $ 等价.
+\end{proof}	
+\end{frame}
+
+\begin{frame}{闭算子定义}
+	设 $ E$, $E_{1}$  为赋范线性空间, 作直和 $ E \oplus E_{1} $, 在其中定义范数:
+\begin{equation}
+	\|(x, y)\|=\|x\|+\|y\|, \quad \forall(x, y) \in E \oplus E_{1}
+\end{equation}
+
+\begin{definition}{闭算子定义}
+	设 $ T $ 是定义在 $ E $ 的子空间 $ D $ 上, 且值域包含在 $ E_{1}$  中的线性算
+子. 空间 $ E \oplus E_{1} $ 中的子集
+\begin{equation*}
+	G_{T} \triangleq\{(x, T x): \quad x \in D\}
+\end{equation*}
+
+称为 $T$ 的图像.
+对任何线性算子 $ T$, $G_{T} $ 是  $E \oplus E_{1}$  中的一个子空间.
+注意到  $G_{T}$  在 $ E \oplus E_{1} $ 中可能是闭的, 也可能是非闭的. 如果 $ T $ 的图像 $ G_{T}$
+是 $ E \oplus E_{1}$  中的闭子空间, 则称 $ T $ 为闭线性算子或简称闭算子.
+
+注：若 $T$ 可逆 , 则 $T$ 是闭算子 $\Leftrightarrow T^{−1}$ 是闭算子
+\end{definition}
+\end{frame}
+
+\begin{frame}{闭算子等价条件}
+	由于一般的线性算子不一定有界, 图像就成为研究这类算子的重要工
+具. 下面的定理为线性算子成为闭算子提供一个易于检验的等价条件.
+
+\begin{theorem}{闭算子等价条件}
+	设 $ E$, $E_{1}$  都是赋范线性空间. $ T $ 是由 $ E $ 的子空间 $ D $ 到 $ E_{1} $ 中的
+线性算子.
+
+$ T $ 为闭算子  $\Longleftrightarrow$  对  $\forall\left\{x_{n}\right\} \subset D$,  若 $ x_{n} \rightarrow x  in  E, T x_{n} \rightarrow y  in  E_{1}$,
+则  $x \in D$  且  $T x=y$.
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}{定理证明}
+\begin{proof}[闭算子等价定义定理证明：]
+	$\Leftarrow~~\forall(x, y) \in \overline{G_{T}}$,  存在  $\left\{x_{n}\right\} \in D$  使得  $\left(x_{n}, T x_{n}\right) \rightarrow(x, y) $.
+于是 $ \left\{x_{n}\right\} \rightarrow x,\left\{T x_{n}\right\} \rightarrow y $.  由假设知, $ x \in D, T x=y $
+故 $ (x, y)=(x, T x) \in G_{T}$,  因此 $ G_{T}=\overline{G_{T}}$, $T $ 为闭算子.
+
+$\Rightarrow$  设 $ \left\{x_{n}\right\} \subset D$,  且  $x_{n} \rightarrow x$, $T x_{n} \rightarrow y$,  这里 $ x \in E, y \in E_{1}$ .  于是
+\begin{equation*}
+	\left\{\left(x_{n}, T x_{n}\right)\right\} \rightarrow(x, y)
+\end{equation*}
+
+由 $ G_{T} $ 为 $ E \oplus E_{1} $ 中的闭集, 知 $ (x, y) \in G_{T} $. 因此 $ x \in D$,  且 $ T x=y $.
+
+对于一个给定的线性算子 , 现在已有连续性、有界性及闭性 . 因连续与有界性等价, 故本质上只有两个：有界性与闭性. 有界性与闭性既有区别又有联系. 有界线性算子不一定是闭算子, 闭算子也不一定有界.
+\end{proof}
+\end{frame}
+
+\section{闭图像定理}
+\begin{frame}{闭图像定理}
+	\begin{theorem}{闭图像定理}
+		设 $ T $ 是由巴拿赫空间 $ E $ 到巴拿赫空间 $ E_{1} $ 中 的线性算子.
+		$T$  为有界算子 $ \Longleftrightarrow T $ 为闭算子
+	\end{theorem}
+
+	\begin{proof}[闭图像定理证明：]
+		`` $\Leftarrow $"  设 $ T $ 是闭算子. 因 $ E$, $E_{1}$  都是巴拿赫空间, 于是 $ E \oplus E_{1} $ 也是
+巴拿赫空间, 其中的范数由等式(8)定义.
+由于 $ G_{T} $ 是 $ E \oplus E_{1} $ 的闭子空间, 故 $ G_{T} $ 也是巴拿赫空间.
+定义算子
+\begin{align*}
+	\widetilde{T}: G_{T} \rightarrow E, \quad \text { 满足 } \widetilde{T}(x, T x)=x
+\end{align*}
+
+首先证明, $ \widetilde{T} $ 是 $ G_{T} $ 到 $ E $ 上的双映射. $ \widetilde{T} $ 显然是线性的且为满映射.
+今设 $ \widetilde{T}(x, T x)=\theta $.  由定义可知,  $x=\theta $.  于是 $ T x=\theta$,  故 $ (x, T x)=(\theta, \theta) $.
+因此 $ \tilde{T} $ 是单映射.
+	\end{proof}
+	\end{frame}
+
+
+\begin{frame}{闭图像定理证明}
+		\begin{proof}[闭图像定理证明续]
+因为
+\begin{align*}
+	\|\widetilde{T}\{(x, T x)\}\|=\|x\| \leq\|x\|+\|T x\|=\|(x, T x)\|
+\end{align*}
+
+所以, $ \widetilde{T}$  有界.
+由定理, $ \widetilde{T} $ 存在有界逆算子 $ \widetilde{T}^{-1} $.
+于是对 $ \forall x \in E$,  由
+\begin{gather*}
+(x, T x)=\widetilde{T}^{-1} x \\
+\Longrightarrow \quad\|T x\| \leq\|(x, T x)\|=\left\|\widetilde{T}^{-1} x\right\| \leq\left\|\widetilde{T}^{-1}\right\| \cdot\|x\|
+\end{gather*}
+
+因此 $ T $ 有界.
+	\end{proof}
+\end{frame}
+
+
+\begin{frame}{闭图像定理证明}
+	\begin{proof}[闭图像定理证明续]
+		" $\Rightarrow$ ":   设 $ T $ 有界.  $\forall(x, y) \in \overline{G_{T}}$,  存在 $ \left(x_{n}, T x_{n}\right) \in G_{T}$  使得
+\begin{equation*}
+	\left(x_{n}, T x_{n}\right) \rightarrow(x, y) \quad(\text { 当 } n \rightarrow \infty) .
+\end{equation*}
+	
+		于是
+		\begin{align*}
+			x_{n} \rightarrow x, \quad T x_{n} \rightarrow y
+		\end{align*}
+		
+	因 $ T $ 有界, 故 $ T x_{n} \rightarrow T x $.  于是 $ y=T x $.  由此可知, $ (x, y) \in G_{T} $.$ G_{T}$  闭, 即 $ T $ 为闭算子. 证毕.
+
+注: (1) 定理2.4相当重要, 因为它将判断定义在巴拿赫空间上的线性算子是否有界转化为判断该算子是否为闭的. 这在不少情况下很方便.
+	(2) 但如果闭算子的定义域仅仅是巴拿赫空间的一个子空间, 则它不一定有界, 试观察下面实例。
+\end{proof}
+\end{frame}
+
+\section{定理运用例举}
+\begin{frame}{定理运用实例}
+	\begin{example}[闭图像定理运用]
+		微分算子 $ T=\frac{d}{\mathrm{~d} t}: D_{T} \rightarrow E_{1}$,  其中 $ D_{T} \equiv C^{1}[a, b] \subset E=C[a, b]$
+而 $ E_{1}=C[a, b] $.  则 $ T $ 是无界闭算子.
+
+1) $ T $ 是闭算子.
+
+实际上, 设 $ \left\{x_{n}\right\} \subset C^{1}[a, b] $ 且在 $ C[a, b] $ 中 $ \left\{x_{n}\right\} \rightarrow x,\left\{T x_{n}\right\} \rightarrow y $ 同时成立.
+第二个极限实际上是指函数列 $ \left\{x_{n}^{\prime}\right\} \rightarrow y \quad(n \rightarrow \infty)$ .  即函数列  $\left\{x_{n}\right\} $ 以及
+函数列 $ \left\{x_{n}^{\prime}\right\} $ 分别一致收签于 $ x(t) $ 及 $ y(t) $.
+由数学分析可知, $ x(t) $ 具有连续导数 $ x^{\prime}(t)$  且  $x^{\prime}(t)=y(t) $.
+因此 $ x \in C^{1}[a, b]$  且 $ y=T x $.  由定理可知, $ T $ 是闭算子.
+
+2) 但前面已经证明 $ T $ 无界.
+	\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+{\Huge\calligra Thanks!}
+\end{center}
+\end{frame}
+
+\end{document} 

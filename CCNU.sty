@@ -1,0 +1,272 @@
+% ==========================================================
+% This templete beamer is made by Yongxue Liu for School of 
+% Mathematic and Statistics of CCNU.
+% Contact US: yongxuel@foxmail.com.
+% Provide CCNU.sty \& Beamer. 
+% ==========================================================
+\mode<presentation>
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+\ProcessOptionsBeamer
+
+\useoutertheme[footline=authorinstitutetitle]{smoothbars}
+\makeatletter
+
+% background
+% ==========================================================
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text,calc,math}
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,2) rectangle(\the\paperwidth,\the\paperheight);
+  % \fill[color=aaudarkblue] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+   \ifnum\thepage=1\relax%
+   \node[scale=2,opacity=0.2] at (7,4){
+    \begin{tikzpicture}[decoration={text effects along path,
+      text={3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233},
+      text effects/.cd,
+      character count=\i, character total=\n,
+      characters={text along path, evaluate={\c=\i/\n*100;},
+      text=orange!\c!blue, scale=\i/\n+0.5}}]
+      \draw[decorate , domain=-10:1080,variable=\t,samples=100]
+            plot ({(\t+300)*cos(\t)/(720)},
+                 {(\t+300)*sin(\t)/(720)});
+      \node at (0,0){\Huge$\pi$};
+      \end{tikzpicture}
+   };
+   
+   \fi
+  \ifnum\thepage>1\relax%
+  \node[scale=2,opacity=0.2] at (7,4){
+    \begin{tikzpicture}[decoration={text effects along path,
+      text={3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233},
+      text effects/.cd,
+      character count=\i, character total=\n,
+      characters={text along path, evaluate={\c=\i/\n*100;},
+      text=orange!\c!blue, scale=\i/\n+0.5}}]
+      \draw[decorate , domain=-10:1080,variable=\t,samples=100]
+            plot ({(\t+300)*cos(\t)/(720)},
+                 {(\t+300)*sin(\t)/(720)});
+      \node at (0,0){\Huge$\pi$};
+      \end{tikzpicture}
+   };
+    \fi
+  \end{tikzpicture}
+}
+% ==========================================================
+
+
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+\setbeamertemplate{footline}
+  {
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,
+      leftskip=.3cm,rightskip=.8cm plus1fil]{author in head/foot}
+      \leavevmode{\usebeamerfont{author in head/foot}\color{yellow!40!orange}\insertshortauthor}
+      \hfill
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\color{yellow!40!orange}\insertshortinstitute}
+      \hfill
+       {\usebeamerfont{date in head/foot}\usebeamercolor[fg]{date in head/foot}\color{yellow!40!orange}\insertshortdate}
+    \end{beamercolorbox}
+
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,
+      leftskip=.3cm,rightskip=.8cm plus1fil]{title in head/foot}
+      {\usebeamerfont{title in head/foot}\color{white}\insertshorttitle}
+      \hfill
+      {\color{white}\bfseries School of Mathematics and Statistics of Central China Normal University}
+      \hfill
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\color{white}\insertframenumber~\frameofframes~\inserttotalframenumber}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatother
+
+\useinnertheme{circles}
+
+% Define color ===================================
+\definecolor{BlueBlack}{RGB}{39,72,98}
+\definecolor{BlueWhite}{RGB}{137,157,192}
+\definecolor{ccnu}{RGB}{22,42,55}
+\definecolor{theo}{RGB}{23,44,60}
+\xdefinecolor{CCNU}{RGB}{116,52,129}
+\definecolor{def}{RGB}{3,22,52}
+\definecolor{alert}{RGB}{114,111,128}
+\definecolor{alertbody}{RGB}{178,190,126}
+\definecolor{alertback}{RGB}{90,46,75}
+\definecolor{alerttext}{RGB}{191,213,201}
+
+
+\setbeamercolor{footline}{bg=CCNU}
+\setbeamercolor{frametitle}{bg=CCNU,fg=white}
+\setbeamercolor{title}{bg=CCNU}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]
+
+\setbeamercolor{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+\setbeamercolor{palette quaternary}{fg=white,bg=structure.fg!50!black}
+%\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor{titlelike}{parent=palette primary}
+
+
+
+%\setbeamercolor*{block title example}{use={normal text,example text},bg=white,fg=CCNU}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{item projected}{fg=white}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{fg=white}
+\setbeamercolor{section in sidebar}{fg=brown}
+\setbeamercolor{section in sidebar shaded}{fg=grey}
+\setbeamercolor{separation line}{}
+\setbeamercolor{sidebar}{bg=CCNU}
+\setbeamercolor{sidebar}{parent=palette primary}
+\setbeamercolor{structure}{fg=CCNU}
+\setbeamercolor{subsection in sidebar}{fg=brown}
+\setbeamercolor{subsection in sidebar shaded}{fg=grey}
+\AtBeginSection[]
+{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+\AtBeginSubsection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+
+%\setbeamercolor{background canvas}{bg=CCNU} % 页面背景设置
+% \setbeamercolor*{normal text}{fg=NordWhite} % 正文文字设置
+
+
+% \setbeamercolor*{alerted text}{fg=green!50!NordRed} 
+% \setbeamercolor*{example text}{fg=NordBrightCyan}
+% \setbeamercolor*{structure}{fg=NordCyan}
+
+\setbeamercolor{title}{fg=white} % 有标题背景色
+%\setbeamercolor*{title}{fg=red} % 没有标题背景色
+\setbeamercolor*{subtitle}{fg=white}
+% \setbeamercolor*{frametitle}{fg=NordGreen}
+% \setbeamercolor*{framesubtitle}{fg=NordBlue}
+% \setbeamercolor*{section in toc}{fg=NordGreen}
+% \setbeamercolor*{subsection in toc}{fg=NordBlue}
+% \setbeamercolor*{subsection in toc shaded}{fg=NordCyan!20!NordBrightBlack}
+
+% \setbeamercolor*{itemize item}{fg=NordGreen}
+% \setbeamercolor*{enumerate item}{fg=NordGreen}
+
+% \setbeamercolor*{section in head/foot}{bg=NordBlack, fg=NordCyan}
+
+% \setbeamercolor{block title}{bg=NordBlue!80,fg=NordWhite!40}
+% \setbeamercolor{block title example}{bg=NordCyan!50!NordBlack,parent={example text}}
+% \setbeamercolor{block title alerted}{bg=NordBlack!80,parent={alerted text}}
+% \setbeamercolor{block body}{bg=gray!50!NordBlack,fg=NordCyan}
+% \setbeamercolor{block body alerted}{bg=CCNU,fg=white}
+% \setbeamercolor{block body alerted}{bg=green!50!black,fg=white}
+% \setbeamercolor{caption}{fg=NordBrightBlue}
+
+%=====================================================
+
+% \setbeamerfont{structure}{family=\rmfamily,series=\bfseries}
+
+% \setbeamerfont{title}{size=\Huge,parent=structure}
+% \setbeamerfont{subtitle}{size=\Large,parent=title}
+
+% \setbeamerfont{section in toc}{size=\Large,parent=structure}
+% \setbeamerfont{section in head/foot}{size=\tiny,parent=structure}
+% \setbeamerfont{subsection in toc}{size=\large,parent={section in toc}}
+
+%\setbeamerfont{frametitle}{parent=structure,size=\Large}
+% \setbeamerfont{framesubtitle}{parent=frametitle,size=\large}
+
+% \setbeamerfont{caption}{size=\footnotesize}
+
+ %\setbeamerfont{block title}{size=\normalsize,series=\mdseries,parent={structure,block body}}
+
+% \setbeamerfont{item}{parent=structure,series=\mdseries}
+
+% =========================================================
+
+% % block
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% Define the alerted block ===========================
+\addtobeamertemplate{block alerted begin}{
+\setlength{\textwidth}{\textwidth}
+}{}
+\setbeamercolor{block body alerted}{fg=alertback,bg=CCNU!10}
+\setbeamerfont{block title}{size=\normalsize,series=\rmfamily,
+parent={structure,block body}}
+\addtobeamertemplate{block alerted begin}{\centering
+\setlength{\textwidth}{\textwidth}
+ }{}
+ \setbeamercolor{block title alerted}{bg=alert,fg=white,
+ parent={alerted text}}
+
+% Define the definition block =======================
+ \addtobeamertemplate{block definition begin}{
+  \setlength{\textwidth}{\textwidth}
+  }{}
+  \setbeamercolor{block body definition}{bg=CCNU!40!white,fg=white}
+  \setbeamerfont{block title}{size=\normalsize,series=\mdseries,
+  parent={structure,block body}}
+  \addtobeamertemplate{block definition begin}{\centering
+  \setlength{\textwidth}{\textwidth}
+   }{}
+   \setbeamercolor{block title definition}{bg=red,fg=white,
+   parent={definition text}}
+
+   \definecolor{Ebg}{RGB}{238,234,242}
+% Define example Block ==============================
+\setbeamercolor{block body example}{bg=Ebg,fg=black}
+\setbeamerfont{block title}{size=\normalsize,series=\rmfamily,
+parent={structure,block body}}
+\addtobeamertemplate{block example begin}{\centering
+\setlength{\textwidth}{\textwidth}
+ }{}
+ \setbeamercolor{block title example}{bg=CCNU!80!white,fg=white,
+ parent={example text}} % 标题加上边框设置
+
+% Theorem Block =====================================
+\setbeamercolor{block body proof}{bg=green,fg=white}
+\setbeamerfont{block title proof}{size=\normalsize,series=\rmfamily,
+parent={structure,block body}}
+\addtobeamertemplate{block proof begin}{\centering
+\setlength{\textwidth}{\textwidth}
+ }{}
+ \setbeamercolor{block title proof}{bg=red,fg=white,parent={proof text}} % 标题加上边框设置
+
+%\setbeamercolor{block title}{bg=theo,fg=white}
+ 
+
+\definecolor{Ttbg}{RGB}{93,44,108}
+ \BeforeBeginEnvironment{theorem}{\setbeamercolor{block title}{fg=white,bg=Ttbg}}
+ \setbeamercolor{block body theorem}{bg=yellow!10!white,fg=black}
+ \setbeamerfont{block body theorem}{size=\normalsize,family=\rmfamily,series=\bfseries}
+
+ \definecolor{Ptbg}{RGB}{77,49,78}
+ \BeforeBeginEnvironment{proof}{\setbeamercolor{block title}{fg=white,bg=Ptbg}}
+ \definecolor{Pbg}{RGB}{212,205,212}
+ \setbeamercolor{block body example}{bg=Pbg,fg=black}
+
+ \definecolor{Dbg}{RGB}{95,95,95}
+ \BeforeBeginEnvironment{definition}{\setbeamercolor{block title}{fg=white,bg=Dbg}}
+
+ \BeforeBeginEnvironment{lemma}{\setbeamercolor{block title}{fg=white,bg=BlueBlack
+ }}
+
+
+\setbeamercolor{caption}{fg=black!60!green}
+
+\mode
+<all>
